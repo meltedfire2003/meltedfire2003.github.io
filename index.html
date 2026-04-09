@@ -12,7 +12,7 @@
         align-items: center;     /* Vertical centering */
         height: 100vh;           /* Full viewport height */
         margin: 0;               /* Remove default browser margin */
-        font-size: 1rem;
+        font-size: 2rem;
         font-weight: 400;
         font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
       }
@@ -22,15 +22,30 @@
           flex-direction: column;
           gap: 8px;
       }
+
+      password-input {
+          
+        padding: 1rem;
+        font-size: 2rem;
+        border-radius: 1rem;
+
+      }
+
+      password-button {
+          
+        font-size: 2rem;
+        padding: 1rem;
+        border-radius: 1rem;
+      }
     </style>
 
     
 </head>
 <body>
    <div class="password-container">
-       <label>Enter password:</label>
-       <input type="text"></input>
-       <button>Enter</button>
+       <label>Password:</label>
+       <input type="password" class="password-input"></input>
+       <button class="password-button">Enter</button>
    </div>
 </body>
 </html>
