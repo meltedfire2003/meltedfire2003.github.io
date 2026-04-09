@@ -6,19 +6,28 @@
     <title>Document</title>
 
     <style>
-  body {
-    display: flex;
-    justify-content: center; /* Horizontal centering */
-    align-items: center;     /* Vertical centering */
-    height: 100vh;           /* Full viewport height */
-    margin: 0;               /* Remove default browser margin */
-  }
-</style>
+      body {
+        display: flex;
+        justify-content: center; /* Horizontal centering */
+        align-items: center;     /* Vertical centering */
+        height: 100vh;           /* Full viewport height */
+        margin: 0;               /* Remove default browser margin */
+        font-size: 1rem;
+        font-weight: 400;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+      }
+
+      .password-container {
+          display:flex;
+          flex-direction: column;
+          gap: 8px;
+      }
+    </style>
 
     
 </head>
 <body>
-   <div>
+   <div class="password-container">
        <label>Enter password:</label>
        <input type="text"></input>
        <button>Enter</button>
