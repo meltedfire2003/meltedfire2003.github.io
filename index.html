@@ -37,9 +37,20 @@
         border-radius: 1rem;
       }
 
-      image {
+      img {
         max-width: 100%;
         height: auto;
+         flex-shrink: 0;
+        scroll-snap-align: center;
+        border-radius: 10px;
+      }
+
+      .image-container {
+        display:flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
       }
     </style>
 
@@ -89,7 +100,7 @@
           }
 
           passwordContainer.style.display = 'none'
-          imageContainer.style.display = 'block'
+          imageContainer.style.display = 'flex'
 
 
 
