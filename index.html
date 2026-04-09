@@ -12,7 +12,7 @@
         align-items: center;     /* Vertical centering */
         height: 100vh;           /* Full viewport height */
         margin: 0;               /* Remove default browser margin */
-        font-size: 2rem;
+        font-size: 1rem;
         font-weight: 400;
         font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
       }
@@ -26,17 +26,74 @@
       .password-input {
           
         padding: 1rem;
-        font-size: 2rem;
+        font-size: 1rem;
         border-radius: 1rem;
 
       }
 
       .password-button {
-        font-size: 2rem;
+        font-size: 1rem;
         padding: 1rem;
         border-radius: 1rem;
       }
     </style>
+
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', (event) => {
+
+        let button = document.querySelector('.password-button')
+        let input = document.querySelector('.password-input')
+        let passwordContainer = document.querySelector('.password-container')
+        let imageContainer = document.querySelector('.image-container')
+
+        button.addEventListener('click', async () => {
+
+          if(input.value.length == 0){
+            alert('please enter password')
+            return
+          }
+
+          const myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
+
+          const raw = JSON.stringify({
+            "password": input.value
+          });
+
+          const requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+          };
+
+          const response = await fetch("https://meltedfire--77d0487e345111f1bf2b42b51c65c3df.web.val.run", requestOptions)
+
+          if(!response.ok){
+            alert('an error occured')
+            return 
+          }
+
+          let passwordCheck = await response.json()
+
+          if(!passwordCheck.ok){
+            alert('Invalid Password, Try again')
+            return 
+          }
+
+          passwordContainer.style.display = 'none'
+          imageContainer.style.display = 'block'
+
+
+
+       
+
+        })
+      });
+
+    </script>
 
     
 </head>
@@ -46,6 +103,10 @@
        <input type="password" class="password-input"></input>
        <button class="password-button">Enter</button>
    </div>
-   <img src="https://github.com/meltedfire2003/meltedfire2003.github.io/blob/images/780_5199.jpg">
+
+   <div class="image-container" style="display:none">
+
+   </div>
+   <!-- <img src="https://github.com/meltedfire2003/meltedfire2003.github.io/blob/images/780_5199.jpg?raw=true"> -->
 </body>
 </html>
